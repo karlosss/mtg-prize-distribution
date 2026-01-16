@@ -13,10 +13,11 @@ if args.mode == "distribute":
 
     standings = parse_standings(raw_standings)
 
-    entitlement = calculate_prize_distribution(standings, args.num_boosters_in_prizepool, args.min_match_points_for_prizes, args.multiplier_step)
+    entitlement = calculate_prize_distribution(standings, args.num_boosters_in_prizepool, args.min_match_points_for_prize, args.multiplier_step)
 
     for e in entitlement.entries:
-        print(e.player_name, e.booster_count)
+        if e.booster_count > 0:
+            print(e.player_name, e.booster_count)
 
 if args.mode == "predict":
     with open(args.standings_file_path) as f:
