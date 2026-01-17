@@ -44,7 +44,7 @@ def _create_simulations(last_standings: Standings, current_pairings: Pairings, n
         if m.player_a_wins > m.player_b_wins:
             predicted_standings[m.player_a_name] += 3
         elif m.player_b_wins > m.player_a_wins:
-            predicted_standings[m.player_a_name] += 3
+            predicted_standings[m.player_b_name] += 3
         else:
             predicted_standings[m.player_a_name] += 1
             predicted_standings[m.player_b_name] += 1
