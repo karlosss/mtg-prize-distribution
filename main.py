@@ -13,7 +13,7 @@ if args.mode == "distribute":
 
     standings = parse_standings(raw_standings)
 
-    entitlement = calculate_prize_distribution(standings, args.num_boosters_in_prizepool, args.min_match_points_for_prize, args.multiplier_step)
+    entitlement = calculate_prize_distribution(standings, args.num_boosters_in_prizepool, args.min_match_points_for_prize, args.multiplier_step, args.even)
 
     for e in entitlement.entries:
         if e.booster_count > 0:
@@ -29,4 +29,3 @@ if args.mode == "predict":
     pairings = parse_pairings(raw_pairings)
 
     predict_standings(standings, pairings, args.num_simulations, args.draw_chance, args.num_boosters_in_prizepool, args.min_match_points_for_prize, args.multiplier_step)
-

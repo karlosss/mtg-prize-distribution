@@ -10,7 +10,9 @@ def _get_votes_per_group(players_with_points: dict[int, set[str]], points_multip
     return votes_per_group
 
 
-def calculate_prize_distribution(final_standings: Standings, booster_count: int, min_match_pts_for_prizes: int, match_points_multiplier_step: float) -> PrizeEntitlement:
+def calculate_prize_distribution(final_standings: Standings, booster_count: int, min_match_pts_for_prizes: int, match_points_multiplier_step: float, even: bool) -> PrizeEntitlement:
+    if even:
+        booster_count = booster_count // 2
     prizes_only_standings = Standings([e for e in final_standings.entries if e.points >= min_match_pts_for_prizes])
     no_prize_players = [e.player_name for e in final_standings.entries if e.points < min_match_pts_for_prizes]
 
@@ -66,7 +68,7 @@ def calculate_prize_distribution(final_standings: Standings, booster_count: int,
     entries = []
     for g, e in zip(groups, base_entitlements):
         for pl in g:
-            entries.append(PrizeEntitlementEntry(pl, e))
+            entries.append(PrizeEntitlementEntry(pl, e if not even else e*2))
 
     for p in no_prize_players:
         entries.append(PrizeEntitlementEntry(p, 0))

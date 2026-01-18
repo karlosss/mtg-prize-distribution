@@ -58,7 +58,7 @@ def predict_standings(last_standings: Standings, current_pairings: Pairings, num
     boos_for_player = defaultdict(list)
 
     for s in simulations:
-        entitlement = calculate_prize_distribution(s, booster_count, min_match_pts_for_prizes, match_points_multiplier_step)
+        entitlement = calculate_prize_distribution(s, booster_count, min_match_pts_for_prizes, match_points_multiplier_step, False)
         for e in entitlement.entries:
             boos_for_player[e.player_name].append(e.booster_count)
 

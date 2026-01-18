@@ -68,11 +68,12 @@ Packs that cannot be fairly assigned are not assigned to anyone.
 - Select all (Ctrl+A), copy (Ctrl+C), paste the contents to an empty file and save it.
 - `python main.py distribute -s <path_to_standings_file> -m <minimum_amount_of_match_points_required_to_win_prizes> -b <number_of_boosters_in_the_prizepool>`
   - for example `python main.py distribute -s C:\Desktop\standings.txt -m 8 -b 150`
+- For 2HG, there is an option to enforce that every team gets even number of booster packs.
 
 The output shows some debug information, but more importantly the name of each player together with the number of booster
 packs they should receive.
 
-### Final standings and distribution prediction
+### Final standings and distribution prediction (Does not work for 2HG)
 
 - Copy data from EventLink in the same way as in the previous step, except this time do the same with the current pairings page too
 - `python main.py distribute -s <path_to_standings_file> -p <path_to_pairings_file> -m <minimum_amount_of_match_points_required_to_win_prizes> -b <number_of_boosters_in_the_prizepool>`

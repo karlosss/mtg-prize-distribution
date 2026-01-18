@@ -12,7 +12,7 @@ subparsers = parser.add_subparsers(
 # Predict mode
 predict = subparsers.add_parser(
     "predict",
-    help="Run simulations to predict outcomes."
+    help="Run simulations to predict outcomes. Does not work for 2HG."
 )
 predict.add_argument(
     "-p", "--pairings-file-path",
@@ -96,4 +96,9 @@ distribute.add_argument(
     type=float,
     metavar="<multiplier_step>",
     help="Match points multiplier step increment (default: 0.4)."
+)
+distribute.add_argument(
+    "-e", "--even",
+    action="store_true",
+    help="Enforces each player gets even number of booster packs (useful for 2HG)"
 )
