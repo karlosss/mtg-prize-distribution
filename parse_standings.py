@@ -13,7 +13,7 @@ def _process_row(row: str) -> tuple[str, int]:
 def parse_standings(raw_standings_lines: list[str]) -> Standings:
     empty_row_regex = re.compile(r"^\s*$")
 
-    standings_start_regex = re.compile(r"^\s*Rank\s+Name\s+Points\s+W/L/D\s+OMW%\s+GW%\s+OGW%\s*$")
+    standings_start_regex = re.compile(r"^\s*Rank\s+.*\s+Points\s+W/L/D\s+OMW%\s+GW%\s+OGW%\s*$")
     standings_end_regex = re.compile(r"^\s*Terms\s*$")
 
     entries = []
